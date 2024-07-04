@@ -1,6 +1,7 @@
 const myLibrary = [];
 const libraryBooks= document.querySelector(".library-books");
 const addBookForm = document.querySelector("#add-book-form");
+const openForm = document.querySelector(".open-form");
 
 // Book constructor
 function Book(title, author, pages, hasRead) {
@@ -87,4 +88,9 @@ addBookForm.addEventListener("submit", (e) => {
     bookPages.value = "";
     document.querySelector("#book-read-yes").checked = false;
     document.querySelector("#book-read-no").checked = true;
+});
+
+// toggle the display of the form
+openForm.addEventListener("click", () => {
+    addBookForm.classList.toggle("hidden");
 });
