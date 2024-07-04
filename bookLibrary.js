@@ -32,6 +32,20 @@ function preloadLibrary() {
     addBookToLibrary({title:"You are what you love", author:"James K.A. Smith", pages:"150", hasRead:false})
 }
 
+function addDelButton(tableRow) {
+    const tableData = document.createElement("td");
+    const delButton = document.createElement("button");
+    delButton.textContent = "Delete 🗑️";
+    delButton.classList.add("delete-button");
+    // add event listener to delete button
+    delButton.addEventListener("click", (e) => {
+        // Remove the row from the DOM
+        tableData.parentElement.remove();
+    });
+    tableData.appendChild(delButton);
+    tableRow.appendChild(tableData);
+}
+
 function displayBooks(myLibrary, index=0) {
     let i = index;
     while (i < myLibrary.length) {
@@ -44,19 +58,9 @@ function displayBooks(myLibrary, index=0) {
                 tableRow.appendChild(tableData);
             }
         }
+        
         // add delete button to the row
-        const tableData = document.createElement("td");
-        const delButton = document.createElement("button");
-        delButton.textContent = "Delete 🗑️";
-        delButton.classList.add("delete-button");
-        // add event listener to delete button
-        delButton.addEventListener("click", (e) => {
-            // Remove the row from the DOM
-            tableData.parentElement.remove();
-            console.log(myLibrary);
-        });
-        tableData.appendChild(delButton);
-        tableRow.appendChild(tableData);
+        addDelButton(tableRow);
 
         // append new row to library table
         libraryBooks.appendChild(tableRow);
