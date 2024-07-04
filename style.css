@@ -68,3 +68,11 @@ form {
     border: 1px solid #ccc;
     border-radius: 1em;
 }
+
+form > div, form > fieldset {
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: none;
+}
