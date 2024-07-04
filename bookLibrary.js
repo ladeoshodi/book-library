@@ -46,6 +46,21 @@ function addDelButton(tableRow) {
     tableRow.appendChild(tableData);
 }
 
+function addReadToggle(tableRow, index) {
+    const tableData = document.createElement("td");
+    const toggleReadButton = document.createElement("button");
+    toggleReadButton.textContent = "Mark as read/unread";
+    toggleReadButton.classList.add("toggle-button");
+    toggleReadButton.value = index;
+
+    // add event listener to toggle button
+    toggleReadButton.addEventListener("click", (e) => {
+        console.log(myLibrary[e.target.value]);
+    });
+    tableData.appendChild(toggleReadButton);
+    tableRow.appendChild(tableData);
+}
+
 function displayBooks(myLibrary, index=0) {
     let i = index;
     while (i < myLibrary.length) {
@@ -59,6 +74,9 @@ function displayBooks(myLibrary, index=0) {
             }
         }
         
+        // add a toggle button to mark book as read/unread
+        addReadToggle(tableRow, i);
+
         // add delete button to the row
         addDelButton(tableRow);
 
