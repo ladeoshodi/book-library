@@ -28,7 +28,7 @@
             <button class="button">Click to add a new book</button>
         </div>
 
-        <form action="#" class="add-book-form">
+        <form id="add-book-form">
             <h3>Add new book to your library</h3>
             <div class="book-title">
                 <label for="book-title">Book Title:</label>
@@ -45,15 +45,15 @@
             <fieldset class="book-read-options">
                 <legend>Have you read the book?</legend>
                 <div>
-                    <input type="radio" name="book-read" id="book-read-yes">
+                    <input type="radio" name="book-read" id="book-read-yes" value="yes">
                     <label for="book-read-yes">Yes</label>
                 </div>
                 <div>
-                    <input type="radio" name="book-read" id="book-read-no" checked>
+                    <input type="radio" name="book-read" id="book-read-no" value="no" checked>
                     <label for="book-read-no">No</label>
                 </div>
             </fieldset>
-            <button type="submit" class="button">Submit Book</button>
+            <button type="submit" class="button" id="submit-button">Submit Book</button>
         </form>
     </div>
 </body>
