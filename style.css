@@ -88,3 +88,11 @@ fieldset {
     border: none;
     padding: 3px 13px;
 }
+
+.toggle-button {
+    color: white;
+    background-color: rgb(71, 149, 71);
+    border-radius: 8px;
+    border: none;
+    padding: 6px 13px;
+}
