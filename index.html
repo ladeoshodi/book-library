@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play with Javascript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="bookLibrary.js" defer></script>
+</head>
+<body>
+    <div class="main">
+        <h1>My Simple Library</h1>
+        <table class="library">
+            <caption>Book Library</caption>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read?</th>
+                </tr>
+            </thead>
+            <tbody class="library-books">
+            </tbody>
+        </table>
+
+        <div class="add-book">
+            <button class="button">Click to add a new book</button>
+        </div>
+
+        <form action="#" class="add-book-form">
+            <h3>Add new book to your library</h3>
+            <div class="book-title">
+                <label for="book-title">Book Title:</label>
+                <input type="text" name="book-title" id="book-title">
+            </div>
+            <div class="book-author">
+                <label for="book-author">Book Author:</label>
+                <input type="text" name="book-author" id="book-author">
+            </div>
+            <div class="book-pages">
+                <label for="book-pages">Number of Pages:</label>
+                <input type="text" name="book-pages" id="book-pages">
+            </div>
+            <fieldset class="book-read-options">
+                <legend>Have you read the book?</legend>
+                <div>
+                    <input type="radio" name="book-read" id="book-read-yes">
+                    <label for="book-read-yes">Yes</label>
+                </div>
+                <div>
+                    <input type="radio" name="book-read" id="book-read-no">
+                    <label for="book-read-no">No</label>
+                </div>
+            </fieldset>
+            <button type="submit" class="button">Submit Book</button>
+        </form>
+    </div>
+</body>
+</html>
