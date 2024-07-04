@@ -1,3 +1,4 @@
+const tableHeaders = ["title", "author", "pages", "read", "delete"]
 const myLibrary = [];
 const libraryBooks= document.querySelector(".library-books");
 const addBookForm = document.querySelector("#add-book-form");
@@ -43,6 +44,16 @@ function displayBooks(myLibrary, index=0) {
                 tableRow.appendChild(tableData);
             }
         }
+        // add delete button to the row
+        const tableData = document.createElement("td");
+        const delButton = document.createElement("button");
+        delButton.textContent = "Delete 🗑️";
+        delButton.classList.add(`delete-${i}`, "delete-button");
+        tableData.appendChild(delButton);
+        tableRow.appendChild(tableData);
+        
+
+        // append new row to library table
         libraryBooks.appendChild(tableRow);
 
         i++;
