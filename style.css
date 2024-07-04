@@ -80,3 +80,11 @@ fieldset {
 .hidden {
     display: none;
 }
+
+.delete-button {
+    color: white;
+    background-color: rgb(188, 38, 38);
+    border-radius: 8px;
+    border: none;
+    padding: 3px 13px;
+}
