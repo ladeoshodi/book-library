@@ -48,10 +48,15 @@ function displayBooks(myLibrary, index=0) {
         const tableData = document.createElement("td");
         const delButton = document.createElement("button");
         delButton.textContent = "Delete 🗑️";
-        delButton.classList.add(`delete-${i}`, "delete-button");
+        delButton.classList.add("delete-button");
+        // add event listener to delete button
+        delButton.addEventListener("click", (e) => {
+            // Remove the row from the DOM
+            tableData.parentElement.remove();
+            console.log(myLibrary);
+        });
         tableData.appendChild(delButton);
         tableRow.appendChild(tableData);
-        
 
         // append new row to library table
         libraryBooks.appendChild(tableRow);
