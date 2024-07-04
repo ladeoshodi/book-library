@@ -1,4 +1,3 @@
-const tableHeaders = ["title", "author", "pages", "read", "delete"]
 const myLibrary = [];
 const libraryBooks= document.querySelector(".library-books");
 const addBookForm = document.querySelector("#add-book-form");
@@ -9,7 +8,8 @@ function Book(title, author, pages, hasRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.hasRead = hasRead ? 'read ✅' : 'not read yet';
+    this.hasRead = hasRead;
+    this.readDisplay = this.hasRead ? 'read ✅' : 'not read yet';
 }
 
 // Add prototype methods
@@ -55,8 +55,15 @@ function addReadToggle(tableRow, index) {
 
     // add event listener to toggle button
     toggleReadButton.addEventListener("click", (e) => {
-        console.log(myLibrary[e.target.value]);
+        const currentBook = myLibrary[e.target.value];
+        const currentReadStatus = currentBook.hasRead;
+        // toggle read state
+        currentBook.hasRead = currentReadStatus ? false : true;
+        currentBook.readDisplay = currentBook.hasRead ? 'read ✅' : 'not read yet';
+        // Change the display in the HTML DOM
+        document.querySelector(`.readDisplay-${e.target.value}`).textContent = currentBook.readDisplay;
     });
+
     tableData.appendChild(toggleReadButton);
     tableRow.appendChild(tableData);
 }
@@ -67,9 +74,13 @@ function displayBooks(myLibrary, index=0) {
         const tableRow = document.createElement("tr");
         const book = myLibrary[i];
         for (const key in book) {
-            if (typeof book[key] !== "function") {
+            if (
+                typeof book[key] !== "function" 
+                && typeof book[key] !== "boolean"
+            ) {
                 const tableData = document.createElement("td");
                 tableData.textContent = book[key];
+                tableData.className = `${key}-${i}`
                 tableRow.appendChild(tableData);
             }
         }
