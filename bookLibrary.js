@@ -3,20 +3,25 @@ const libraryBooks= document.querySelector(".library-books");
 const addBookForm = document.querySelector("#add-book-form");
 const openForm = document.querySelector(".open-form");
 
-// Book constructor
-function Book(title, author, pages, hasRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasRead = hasRead;
-    this.readDisplay = this.hasRead ? 'read ✅' : 'not read yet';
-}
+// Book class
+class Book {
+    constructor(title, author, pages, hasRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = hasRead;
+        this.readDisplay = this.hasRead ? 'read ✅' : 'not read yet';
+    }
 
-// Add prototype methods
-// Book.info
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead}`;
-};
+    getInfo() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead}`;
+    }
+
+    // Getter
+    get info () {
+        return this.getInfo();
+    }
+}
 
 function addBookToLibrary ({title, author, pages, hasRead} = {}) {
     // Create a new Book object and add to library
@@ -75,8 +80,7 @@ function displayBooks(myLibrary, index=0) {
         const book = myLibrary[i];
         for (const key in book) {
             if (
-                typeof book[key] !== "function" 
-                && typeof book[key] !== "boolean"
+               typeof book[key] !== "boolean"
             ) {
                 const tableData = document.createElement("td");
                 tableData.textContent = book[key];
